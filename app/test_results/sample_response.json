@@ -1,0 +1,50 @@
+{
+  "success": true,
+  "results": [
+    {
+      "platform": "Bluesky",
+      "status": "success",
+      "posted_url": "https://bsky.app/profile/sangee-tha.bsky.social/post/3n2m5xm5vrs2s",
+      "public_access": true,
+      "date": "2026-11-19",
+      "time": "04:43:53",
+      "error": null
+    },
+    {
+      "platform": "Mastodon",
+      "status": "success",
+      "posted_url": "https://mastodon.social/@Sangeetha22/117638802093781332",
+      "public_access": true,
+      "date": "2026-11-18",
+      "time": "18:14:26",
+      "error": null
+    },
+    {
+      "platform": "Discord",
+      "status": "success",
+      "posted_url": null,
+      "public_access": false,
+      "date": "2026-11-19",
+      "time": "04:43:56",
+      "error": null
+    },
+    {
+      "platform": "DEV.to",
+      "status": "success",
+      "posted_url": "https://dev.to/sangeetha_sangeetha_a584b/automated-update-from-fastapi-bfg-temp-slug-451117",
+      "public_access": false,
+      "date": "2026-11-19",
+      "time": "04:43:57",
+      "error": null
+    },
+    {
+      "platform": "GitHub",
+      "status": "success",
+      "posted_url": "https://github.com/Sangeetha2224/Transport_Website/issues/2",
+      "public_access": true,
+      "date": "2026-11-19",
+      "time": "04:43:58",
+      "error": null
+    }
+  ]
+}
