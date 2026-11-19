@@ -89,9 +89,16 @@ automated-posting/
 
 ### Step 1: Clone the Repository
 
+Clone the project from GitHub:
+
 ```bash
-git clone YOUR_PUBLIC_GITHUB_REPOSITORY_URL
-cd automated-posting
+git clone https://github.com/Sangeetha2224/automated-multi-platform-posting.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd automated-multi-platform-posting
 ```
 
 Replace the placeholder with your actual repository URL.
