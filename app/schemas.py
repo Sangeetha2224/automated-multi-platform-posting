@@ -1,10 +1,14 @@
 
-from pydantic import BaseModel, Field, HttpUrl, field_validator
+from pydantic import BaseModel, Field, HttpUrl, field_validator, TypeAdapter
 from urllib.parse import urlsplit
 import re
 
 
+url_adapter = TypeAdapter(HttpUrl)
+
+
 class PostingRequest(BaseModel):
+
     message: str = Field(
         ...,
         min_length=1,
@@ -17,7 +21,8 @@ class PostingRequest(BaseModel):
 
         urls = re.findall(
             r"https?://[^\s]+",
-            value
+            value,
+            flags=re.IGNORECASE
         )
 
         if len(urls) != 1:
@@ -31,14 +36,13 @@ class PostingRequest(BaseModel):
             parsed = urlsplit(url)
 
             if (
-                parsed.scheme not in ["http", "https"]
+                parsed.scheme.lower() not in ["http", "https"]
                 or not parsed.hostname
                 or "." not in parsed.hostname
-                or any(char.isspace() for char in url)
             ):
-                raise ValueError()
+                raise ValueError("Invalid URL")
 
-            HttpUrl(url)
+            url_adapter.validate_python(url)
 
         except Exception:
             raise ValueError("Invalid URL")

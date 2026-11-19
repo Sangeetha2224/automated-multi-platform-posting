@@ -19,7 +19,6 @@ class DiscordPlatform(BasePlatform):
                 raise ValueError("Discord webhook URL is missing")
 
             async with httpx.AsyncClient(timeout=20) as client:
-
                 response = await client.post(
                     webhook_url,
                     json={"content": message},
@@ -31,18 +30,21 @@ class DiscordPlatform(BasePlatform):
 
                 message_id = data.get("id")
                 channel_id = data.get("channel_id")
+                guild_id = data.get("guild_id")
 
-                posted_url = (
-                    f"https://discord.com/channels/@me/{channel_id}/{message_id}"
-                    if message_id and channel_id
-                    else None
-                )
+                posted_url = None
+
+                if message_id and channel_id and guild_id:
+                    posted_url = (
+                        f"https://discord.com/channels/"
+                        f"{guild_id}/{channel_id}/{message_id}"
+                    )
 
                 return {
                     "platform": "Discord",
                     "status": "success",
                     "posted_url": posted_url,
-                    "public_access": True,
+                    "public_access": False,
                     "date": now.strftime("%Y-%m-%d"),
                     "time": now.strftime("%H:%M:%S"),
                     "error": None

@@ -58,8 +58,7 @@ automated-posting/
 │   │   ├── discord.py
 │   │   ├── devto.py
 │   │   ├── github.py
-│   │   ├── reddit.py
-│   │   └── telegram.py
+│   │   ├
 │   │
 │   └── services/
 │       ├── __init__.py
